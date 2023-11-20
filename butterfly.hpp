@@ -1,5 +1,6 @@
 #include<SDL.h>
 #include "drawing.hpp"
+#pragma once
 
 class Butterfly{
 

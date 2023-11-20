@@ -1,5 +1,6 @@
 #include<SDL.h>
 #include "drawing.hpp"
+#pragma once
 
 class Bee{
 
@@ -8,7 +9,7 @@ class Bee{
 
 public:
     // add the fly function here as well.
-    void draw();
+    void draw(int x, int y);
     void fly();
     Bee(); 
     // may add other overloaded constructors here... 

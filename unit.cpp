@@ -1,9 +1,7 @@
 #include "unit.hpp"
+#pragma once
 
 void draw(){
-    Unit p; //structure of Unit type for pigeon
-    Unit bt; //structure of Unit type for butterfly
-    Unit b; //structure of Unit type for bee
 
     // this generates a random number between 0 and 2 which will help in random generation of objects
     int r = (rand() % 3);

@@ -1,21 +1,26 @@
-#include <sdl.h>
-#include "butterfly.hpp"
+#include "SDL.h"
 #include "HUMania.hpp"
+#include "butterfly.hpp"
+#include "unit.hpp"
+#pragma once
+
 // butterfly implementation will go here.
+Unit bt;
+vector<Unit> butterfly;
 
 int position = 0; //this tells the position of the object 0=up 1=middle 2=down
 
 // in project implementation this draw function should only be in superclass
-void Butterly::draw(){
+void Butterly::draw(int x, int y){
     SDL_RenderCopy(Drawing::gRenderer, Drawing::assets, &srcRect, &moverRect);
-    b2.moverRect = (SDL_Rect){x, y, 50, 50}; //moverRect remains the same
-        b2.srcRect = (SDL_Rect){7,88,155,103}; //srcRect changed to butterfly up position
-        butterfly.push_back(b2); //pushes the Unit type object into the vector of butterfly
+    bt.moverRect = (SDL_Rect){x, y, 50, 50}; //moverRect remains the same
+        bt.srcRect = (SDL_Rect){7,88,155,103}; //srcRect changed to butterfly up position
+        butterfly.push_back(bt); //pushes the Unit type object into the vector of butterfly
 }
 
 
 // fly() is overrided from the superclass
-void Buttefly::fly(){
+void Buttefly::fly() override{
     position = position % 3; //ensure that the position remains between 0 and 2
     for(int i = 0; i < butterfly.size(); i++){
         if (position == 0){
@@ -40,11 +45,11 @@ void Buttefly::fly(){
 
 Butterly::Butterly(){
     // src coorinates from assets.png file, they have been found using spritecow.com
-    b2.srcRect = (SDL_Rect){256,24,174,134}; //middle
-    b2.srcRect = (SDL_Rect){257,182,192,214}; //down
-    b2.srcRect = (SDL_Rect){248,433,247,178}; //up
+    bt.srcRect = (SDL_Rect){256,24,174,134}; //middle
+    bt.srcRect = (SDL_Rect){257,182,192,214}; //down
+    bt.srcRect = (SDL_Rect){248,433,247,178}; //up
 
 
     // it will display butterfly on x = 30, y = 40 location, the size of butterfly is 50 width, 60 height
-    b2.moverRect = (SDL_Rect){30, 40, 50, 50};
+    bt.moverRect = (SDL_Rect){30, 40, 50, 50};
 }
